@@ -1,0 +1,61 @@
+2_All DOM selector**********************************************************************
+
+Inspect
+Console
+--------------------------
+
+document.getElementById();
+document.getElementById('title')
+document.getElementById('title').id
+document.getElementById('title').className
+document.getElementById('title').getAttribute('id')
+document.getElementById('title').getAttribute('class')
+document.getElementById('title').setAttribute('class','text')
+
+const title=document.getElementById('title')
+title
+op:-<h1 id="title" class="heading">DOM manipulation</h1>
+title.style.color='green'
+
+title.innerHTML
+'DOM manipulation'
+title.innerText
+'DOM manipulation'
+title.textContent
+'DOM manipulation'
+
+
+<h1 id="title" class="heading">DOM manipulation <span style="display: none;">JAVA SCRIPT</span></h1>
+title.innerText
+'DOM manipulation'
+
+title.textContent
+'DOM manipulation JAVA SCRIPT'
+
+title.innerHTML
+'DOM manipulation <span style="display: none;">JAVA SCRIPT</span>'
+
+const c=document.querySelector('ul')
+const mygreen=c.querySelector('li')
+mygreen.style.color='green'
+mygreen.innerText="five"
+
+
+
+const a=document.querySelectorAll('li')
+
+COLOR SILNG li TAG
+a[0].style.color='red'
+
+//COLOR ALL li TAG
+a.forEach(function (l) {
+    l.style.color='red'
+})
+
+//USING FAT-ARROW FUNCTION
+a.forEach(l => {
+    l.style.color = 'red';
+});
+
+
+3_How to create a new element

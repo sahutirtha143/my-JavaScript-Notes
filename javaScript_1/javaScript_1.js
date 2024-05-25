@@ -1,5 +1,5 @@
-//01_DATA TYPES*************************************
-
+//01_DATA TYPES***********************************************************************************
+// Datatype specify the size and type of values that can be stored
 const accId=1234;
 let accoId=2345;
 var userId=3456;
@@ -25,7 +25,7 @@ because some issue in the block scope and functional scope
 */
 
 
-//02_Datatypes and ECMA standards**************************
+//02_Datatypes and ECMA standards****************************************************************
 
 "use strict"; //treated as a new version of JS code
 
@@ -37,15 +37,15 @@ because some issue in the block scope and functional scope
 //undefined
 //symblo=>unique
 
-console.log(typeof undefined);
-console.log(typeof null);
-console.log(typeof NaN);
-console.log(NaN===NaN);
+// console.log(typeof undefined);
+// console.log(typeof null);
+// console.log(typeof NaN);
+// console.log(NaN===NaN);
 
-//03_Datatyope conversion confusion***************************
+//03_Datatyope conversion confusion***************************************************************
 
-let score=33
-// let score="hitesh"
+// let score=33
+let score="hitesh"
 // console.log(typeof(score));
 let valueInNum=Number(score);
 // console.log(typeof(valueInNum));
@@ -64,7 +64,7 @@ let numInStirng=String(num);
 // console.log(numInStirng);
 
 
-//04_ Why string to number******************************************
+//04_ Why string to number*************************************************************************
 
 // console.log(3+3);
 
@@ -72,15 +72,22 @@ let numInStirng=String(num);
 // console.log(3+"3");
 // console.log("3"+"3");
 
-// console.log("3"+3+3+3+3);
-// console.log(3+3+3+3+"3");
+// console.log("3"+3+3+3+3); //concatination follow left to right associativity
+// console.log(3+3+3+3+ +"3"); //concatination follow left to right associativity
 
 // console.log(3+ +3);
 // console.log(3+ +"3");
 // console.log("3"+ +3);
 // console.log("3"+ +"3");
 
-//05_ comparison of datatypes******************************************
+const c1="3";
+const c2=+"3";
+// console.log(c1);
+// console.log(typeof c1);
+// console.log(c2);
+// console.log(typeof c2);
+
+//05_ comparison of datatypes********************************************************************
 
 // console.log(null>0);
 // console.log(null==0);
@@ -93,7 +100,7 @@ let numInStirng=String(num);
 //06_datatypes summary**********************************************************************************
 
 // PREMITIVE DATATYPE:
-// 7 TYPES:String,Number,Boolean,null,undefined,Symbol,BigInt
+// 7 TYPES:String,Number(NaN),BigInt,Boolean,null,undefined,Symbol
 
 let name="asd";
 // console.log(typeof name);
@@ -113,6 +120,7 @@ let name4=undefined;
 let name5=Symbol('123');
 let name6=Symbol('123');
 // console.log(typeof name5);
+// console.log(name5==name6);
 // console.log(name5===name6);
 
 // NON-PREMITIVE:
@@ -121,6 +129,7 @@ let name6=Symbol('123');
 let names=["ram","laxman","sita"];
 // console.log(typeof names);
 // console.log(names);
+// console.table(names);
 
 let objNames={
     name:"ram",
@@ -128,17 +137,18 @@ let objNames={
     gender:"male"
 
 }
-// console.log(objNames);
 // console.log(typeof objNames);
+// console.log(objNames);
+// console.table(objNames);
 
 let myFun=function(){
-    
+    return 5+6;
 }
-
+// console.log(myFun());
 // console.log(typeof myFun);
 
 
-//07_stack and heap memory*********************************************************************
+//07_stack and heap memory**************************************************************************
 
 // STACK(PREMITIVE DATATYPES)
 let abc="Sabitri"
@@ -165,7 +175,7 @@ user2.email="sabitri@gmail.com"
 // console.log(user1);
 
 
-//08_String in javascript***********************************************************************
+//08_String in javascript***************************************************************************
   
 
 // backtics:- (``) --Also called String interpollation (most readable and reliable)
@@ -176,12 +186,13 @@ let unameid=12;
 // console.log(`Name of the user is ${uname1} and uid is ${unameid}`);
 
 let uname2=new String("asdf");
+// console.log(uname2);
 // console.log(typeof uname2);
 // console.log(uname1 == uname2);
 // console.log(uname1 === uname2);
 
 
-// let myname="  x y z  ";
+let myname="  x y z   ";
 // console.log(myname);
 // console.log(myname.length);
 // console.log(myname.charAt(2));
@@ -195,9 +206,14 @@ let uname2=new String("asdf");
 // console.log(myname.trim());
 // console.log(myname.trim().concat(" asdfgh"));
 
+// let mynameArr=Array.from(myname);
+// console.log(mynameArr);
+// console.log(mynameArr.slice(2,4));
+// console.log(mynameArr.splice(2,4));
+// console.log(mynameArr);
 
 
-//09_Number and maths **************************************************************************
+//09_Number and maths ******************************************************************************
 
 //Number
 let numb=1234.999;
@@ -207,10 +223,13 @@ let numb=1234.999;
 let numb1=new Number(numb);
 // console.log(numb1);
 // console.log(typeof numb1);
+// console.log(numb==numb1);
+// console.log(numb===numb1);
 
-let numb2=numb1.toString();
+// let numb2=numb1.toString();
 // console.log(numb2);
 // console.log(typeof numb2);
+
 
 // console.log(numb2.length);
 
@@ -233,8 +252,8 @@ const numb3=10000000;
 // console.log(Math.random());
 // console.log(Math.random()*10);
 // console.log((Math.random()*10)+1);
-// console.log(Math.floor((Math.random()*10)+1));
-// console.log(Math.floor((Math.random()*10)));
+// console.log(Math.floor((Math.random()*10)+1)); //without zero
+// console.log(Math.floor((Math.random()*10))); //with zero
 
 const min=10;
 const max=20;
@@ -253,24 +272,26 @@ let myDate=new Date();
 // console.log(myDate.toLocaleDateString());
 
 console.log("\n")
-// let mySetDate=new Date(2024,2,13);
-let mySetDate=new Date("2024-03-13");
-// console.log(mySetDate.toString());
+let mySetDate1=new Date(2024,4,26);
+let mySetDate2=new Date("2024-05-26");
+// console.log(mySetDate1.toString());
+// console.log("************************")
+// console.log(mySetDate2.toString());
 
 
 let mygetDate=new Date();
-// console.log(mySetDate.getTime()/1000);
-// console.log(Math.floor(mySetDate.getTime()/1000));
-// console.log(mySetDate.getDate());
-// console.log(mySetDate.getMonth());
-// console.log(mySetDate.getDay());
+// console.log(mySetDate2.getTime()/1000);
+// console.log(Math.floor(mySetDate2.getTime()/1000));
+// console.log(mySetDate2.getDate());
+// console.log(mySetDate2.getMonth());
+// console.log(mySetDate2.getDay());
 
-// mygetDate.toLocaleDateString('default'{
+// mygetDate.toLocaleDateString('default',{
 //     weekday:"long"
-// })
+// });
 
 
-//11_Array in javascript*******************************************************************
+//11_Array in javascript************************************************************************
 
 let myArray=[1,2,3,4,5];
 // console.log(myArray);
@@ -294,17 +315,19 @@ let myArray=[1,2,3,4,5];
 // console.log(myArray2);
 // console.log("C",myArray);
 
+console.log("*****************************");
 // console.log("B",myArray);
-// let myArray3=myArray.splice(1,3);
+// let myArray3=myArray.splice(1,4);
 // console.log(myArray3);
 // console.log(myArray);
 // console.log("C",myArray);
-
+ 
 
 // let newArr=myArray.join();  //Here .join() convert array object into the String
 // console.log(myArray);
 // console.log(typeof myArray);
 // console.log(newArr);
+// console.log(newArr.length);
 // console.log(typeof newArr);  //Here it print the array as a String
 
 
@@ -323,9 +346,12 @@ let family2=["dada","khudi","maa","adi","Sriyanshu"];
 // console.log(family3);
 // console.log(family3[6]);
 
+/* The spread operator in JavaScript, denoted by three dots (...), is used to expand elements of an iterable (like an array or an object) into individual elements. It is particularly useful for copying arrays, merging arrays, and spreading elements in function arguments. */
 
+const family4=[...family,...family2];//using spread operator
+// console.log(family4);
+// console.log(typeof family4);
 // console.log(...family,...family2)  //using spread operator
-
 
 
 let myArr=[1,2,3,[4,5],6,[7,8,9,[10]]];
@@ -338,7 +364,6 @@ let myArr=[1,2,3,[4,5],6,[7,8,9,[10]]];
 // console.log(typeof "RAM");
 // console.log( Array.isArray("RAM"));
 // console.log(typeof Array.isArray("RAM"));
-// console.log(Array.from("RAM"));
 // console.log(Array.from("RAM"));
 // console.log(typeof Array.from("RAM"));
 // console.log( Array.from("RAM")[1]);
@@ -374,9 +399,12 @@ const user ={
     mySym:"myKey1",
     [mySym]:"myKey2"
 }
+// console.log(user)
+// console.table(user)
 // console.log(typeof user)
 // console.log(user.name);
 // console.log(user["name"]);
+// console.log(user.full name);
 // console.log(user["full name"]);
 
 // FOR SYMBOL DATATYPE
@@ -398,6 +426,9 @@ const user ={
 user.greet=function(){
     console.log("hello world......")
 }
+// user.greet=()=>{
+//     console.log("hello world......")
+// }
 // console.log(user.greet);
 // console.log(user.greet());
 
@@ -409,20 +440,22 @@ user.greet1=function(){
 
 
 //15_Objects part 2************************************************************************************************
-
+// Singleton
+// Object.create--(Constructor method)
 const tinderUser=new Object();  //Singleton object
 // console.log(tinderUser);
 // console.log(typeof tinderUser);
 
-const tinderUser1={}; //Non-singleton object
-tinderUser1.id="123abc";
-tinderUser1.name="sbs Sahu"
-tinderUser1.isLogedIn="false"
-// console.log(tinderUser1);
-// console.log(typeof tinderUser1);
+// const tinderUser={}; //Non-singleton object
+tinderUser.id="123abc";
+tinderUser.name="sbs Sahu"
+tinderUser.isLogedIn="false"
+// console.log(tinderUser);
+// console.log(typeof tinderUser);
 
 const regularUser={
-    gmail:"sbs@gmail.com",
+    // gmail:"sbs@gmail.com",
+    "gmai l":"sbs@gmail.com",
     userName:{
       fullname:{
         firstName:"Sbs",
@@ -431,8 +464,9 @@ const regularUser={
     }
 }
 // console.log(regularUser);
-// console.log(regularUser["gmail"]);
-// console.log(regularUser.gmail);
+// console.table(regularUser);
+// console.log(regularUser.gmai l);
+// console.log(regularUser["gmai l"]);
 // console.log(regularUser.userName);
 // console.log(regularUser.userName.fullname);
 // console.log(regularUser.userName.fullname.firstName);
@@ -442,8 +476,8 @@ const obj1={1:"a",2:"b"}
 const obj2={3:"c",4:"d"}
 // console.log(obj1,obj2);
 
-//using Object.assing() method+++++++++
-// const obj3=Object.assign(obj1,obj2);
+// using Object.assing() method+++++++++
+const obj3=Object.assign(obj1,obj2);
 // const obj3=Object.assign({},obj1,obj2); //here {} is source and obj1 or obj2 are the target/destnation
 // console.log(obj3);
 
@@ -469,6 +503,7 @@ const userX=[
     }
 ]
 // console.log(userX);
+// console.table(userX);
 // console.log(userX[0]);
 // console.log(userX[0].id);
 // console.log(userX[0].gmail);
@@ -476,13 +511,14 @@ const userX=[
 // console.log(userX[2]);
 // console.log(userX[3]);
 
-// console.log(tinderUser1);
-// console.log(Object.keys(tinderUser1)); //here the out values are covert into the array means the ouput datatype is Array
-// console.log(Object.values(tinderUser1));
-// console.log(Object.entries(tinderUser1));
+// console.log(tinderUser);
+// console.log(Object.keys(tinderUser)); //here the out values are covert into the array means the ouput datatype is Array
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
+// console.table(Object.entries(tinderUser));
 
-// console.log(tinderUser1.hasOwnProperty("isLogedIn"));
-// console.log(tinderUser1.hasOwnProperty("isLoged"));
+// console.log(tinderUser.hasOwnProperty("isLogedIn"));
+// console.log(tinderUser.hasOwnProperty("isLoged"));
 
 
 
@@ -500,11 +536,13 @@ const course={
 // const {courseName}=course;
 // console.log(courseName);
 
+
+/* Object destructuring is concise way.where we extract all valuses form object and assign to a single variable */
 // const {coursePrice:language}=course;  //It is called object destructuring in javascript
 // console.log(language);
 
 // {
-//     JSON;
+//     JSON(JavaScript Object Notation);
 // }
 
 // JSON API Format
@@ -537,14 +575,14 @@ function fullname(){
 // console.log("Resullt :"+ result)
 
 function addTwoNumber(num1,num2){
-    // result=num1+num2
+    // result=num1+num2;
     // console.log("Hitesh"); //Can be print the result because it is written before the "return" return statement
     // return result;
     // console.log("Hitesh Sir"); //Cannot be print the result because it is written after the "return" return statement
 
     return num1+num2; //Direct return No need to declare extra variable
 }
-// const result=addTwoNumber(5,3)
+const result=addTwoNumber(5,3)
 // console.log("Resullt :"+ result)
 
 
@@ -556,23 +594,23 @@ function loginUserMessage(username){
 // console.log(loginUserMessage())
 
 
-function loginUserMessage(username){
-    if(username === undefined){
-        console.log("Please enter username")
-        return
-    }
-    return `${username} is logged in Just Now`
-}
+// function loginUserMessage(username){
+//     if(username === undefined){
+//         console.log("Please enter username")
+//         return
+//     }
+//     return `${username} is logged in Just Now`
+// }
 // console.log(loginUserMessage())
 // console.log(loginUserMessage("Hitesh"))
 
-function loginUserMessage(username){
-    if(!username){
-        console.log("Please enter username")
-        return
-    }
-    return `${username} is logged in Just Now`
-}
+// function loginUserMessage(username){
+//     if(!username){
+//         console.log("Please enter username")
+//         return
+//     }
+//     return `${username} is logged in Just Now`
+// }
 // console.log(loginUserMessage())
 // console.log(loginUserMessage("Hitesh"))
 
@@ -586,11 +624,15 @@ function loginUserMessage(username){
 // console.log(calculateCartPrice(100))
 // console.log(calculateCartPrice(100,200))
 
-// function calculateCartPrice(...n1){
-//     return n1;
-// }
+
+/* REST OPERATOR: - The rest operator in JavaScript allows you to represent an indefinite number of arguments as an array. It is useful for functions that need to handle a variable number of arguments. The rest operator is denoted by three dots (...) followed by the name of the array that will hold the rest of the arguments */
+
+function calculateCartPrice(...n1){
+    return n1;
+}
 // console.log(calculateCartPrice(100))
 // console.log(calculateCartPrice(100,200))
+// console.log(calculateCartPrice(100,200,"SDFG",4567));
 
 const users={
     name:"hitesh",
@@ -606,14 +648,13 @@ function handleObject(a){
 //     age :21
 // })
 
-// const myArrr=[1,2,3];
 
-function getArrayElemet(getArr){
-    return getArr[1];
-}
-// console.log(getArrayElemet(myArrr))
+// const myArrrr=[1,2,3];
+// function getArrayElemet(getArr){
+//     return getArr[1];
+// }
+// console.log(getArrayElemet(myArrrr))
 // console.log(getArrayElemet([1,2,3]))
-
 
 
 
@@ -649,19 +690,20 @@ if(true){
 
 
 
-// function one(){
-//     const a="hitesh";
+function one(){
+    const a="hitesh";
     
-//     function two(){
-//         const b="youtube";
-//         console.log("Name "+ a);
-//         // console.log("Website "+b);   
-//     }
+    function two(){
+        const b="youtube";
+        console.log("Name "+ a);
+        console.log("Website "+b);   
+    }
 
-//     // console.log("Website "+b);   
-//     // two();
-// }
-// // one();
+    // console.log("Website "+b);   
+    // two();
+    // console.log(a);
+}
+// one();
 
 
 if(true){
@@ -671,6 +713,7 @@ if(true){
         // console.log(a+" "+ b)
     }
     // console.log(b);
+    // console.log(a);
 }
 // console.log(a);
 
@@ -748,7 +791,7 @@ if(true){
 
         // IMPLICITY RETURN : means "return" keyword does not used FOR FAT-ARROW FUNCTION 
         //      // method1
-        // const fun5=(nn1,nn2)=>   nn1+nn2;  
+        // const fun5=(nn1,nn2)=>nn1+nn2;  
         // console.log(fun5(5,6));
 
         // // method2
@@ -757,10 +800,10 @@ if(true){
 
 
                 // FOR OBJECT RETURN IN FAT-ARROW FUNCTION MUST USE PARENTHES
-                // const fun6=(n1,n2)=>({username:"hitesh",
+                // const fun7=(n1,n2)=>({username:"hitesh",
                 //     age:28
                 // })
-                // console.log(fun6(5,6));
+                // console.log(fun7(5,6));
 
 
     //  (1) const a=forEach(function(){
@@ -779,9 +822,10 @@ if(true){
             // Remove the problem of GLOBAL SCOPE variable or polution WE use the IIFE -> "()();"
                 // Here at the end of the function we must use the semicolon Otherwise it can be give error
 
-        // (function fun(){
+        // function fun(){
         //     console.log("Hello Gyus");
-        // })()
+        // }
+        // (fun)();
 
         // (function(params) {
         //     console.log("Hello Guys");
@@ -828,7 +872,7 @@ if(true){
 
         // CONDITIONAL OPERATOR : <, >, <=, >=, !=, ==, ===, !=
         // Here "==" :-> Just Check the values
-        //      "===" :-> Check Value as well as data type of the value
+        //      "===" :-> Check Value as well as data type of the value(Strict Check)
 
     // IF-ELSE CONDITIOANL STATEMENT
             //  if(2=="2"){
@@ -845,7 +889,7 @@ if(true){
 
                     // SHORT HAND NOTATION FOR THE IF  CONDITION
                     // if(1<2) console.log("Executed");
-                    // if(1<2) console.log("Executed"),console.log("Executed");  //Also called Implicity Scope
+                    // if(1<2) console.log("Executed1"),console.log("Executed2");  //Also called Implicity Scope
 
 
     //IF ELSE-IF CONDITIOANL STATEMENT
@@ -899,13 +943,13 @@ if(true){
 
     // checkEmpty array is Empty or not
 
-    // const a=[];
-    // if(a.length===0){
+    // const aa=[1];
+    // if(aa.length===0){
     //     console.log(`Array is Empty`);
     // }else{
         
-        //     console.log(`Array is not Empty`);
-        // }
+    //         console.log(`Array is not Empty`);
+    //     }
         
 
  // check Empty Object  is Empty or not
@@ -941,15 +985,14 @@ if(true){
 
 
 
-
 // 25_for loop break and continue******************************************************************************************************
 
-        for(let i=1;i<=10;i++){
-            // console.log(`Multiplication Table for ${i}`);
-            for(let j=1;j<=10;j++){
-                // console.log(`${i} * ${j} = ${i*j}`);
-            }
-        }
+        // for(let i=1;i<=10;i++){
+        //     console.log(`Multiplication Table for ${i}`);
+        //     for(let j=1;j<=10;j++){
+        //         console.log(`${i} * ${j} = ${i*j}`);
+        //     }
+        // }
 
         let myAr=["baba","bau","jhia","babu"]
         for(let i=0;i<myAr.length;i++){
@@ -1009,17 +1052,20 @@ if(true){
    }
 
    const str="hello guys";
-   for(const i of str){
-    // console.log(i);
-   }
+//    let out="";
+//    for(const i of str){
+//     out=out+i;
+//     console.log(i);
+//    }
+//    console.log(out);
 
 //    const map=new Map();
 //    map.set('KON',"Konkorada");
 //    map.set('KAU',"Kaudia");
 //    map.set('KAR',"Karakhandi");
 
-// for(const [key,values] of map ){
-    // console.log(key +":-"+values);
+// for(const [key,values] of map){
+//     console.log(key +":-"+values);
 // }
 
 
@@ -1038,6 +1084,7 @@ const myOb={
     'game2':'PUBG',
     'game3':'LUDO'
 }
+// console.table(myOb)
 for (const key in myOb) {
 //    console.log(key);
 //    console.log(myOb[key]);
@@ -1045,15 +1092,17 @@ for (const key in myOb) {
 
 
 const my=["one","two","three"]
-
+// console.table(my)
 for(const key in my){
     // console.log(key)
     // console.log(my[key]);
 }
 
 
+
+
 //HERE MAP CAN NOT BE ITERABLE IN THE FOR IN LOOP
-const map=new Map();
+// const map=new Map();
 // map.set('KON',"Konkorada");
 // map.set('KAU',"Kaudia");
 // map.set('KAR',"Karakhandi");
@@ -1071,9 +1120,10 @@ const map=new Map();
     })
 
 
-    coding.forEach((l)=>{
-        // console.log("my language "+l)
-    });
+    // const x=coding.forEach((l)=>{
+    //     console.log("my language "+l)
+    // });
+    // console.log(x)
 
     // coding.forEach((language)=>(
     //      console.log(`I am comfortable in ${language}`)  
@@ -1149,7 +1199,7 @@ const value=language.forEach((item)=>{
 
         let myArrr=[1,2,3,4,5]
         const addTen=myArrr.map((n)=> n+10);
-        // console.log(addTen)
+        console.log(addTen)
 
 
 // *****************REDUCE***************************
@@ -1161,5 +1211,8 @@ const value=language.forEach((item)=>{
         const sumofTenNum=array1.reduce((n1,n2)=>(
             n1+n2
         ),initialValue);
-        // console.log(sumofTenNum);
+        console.log(sumofTenNum);
+
+
+
         

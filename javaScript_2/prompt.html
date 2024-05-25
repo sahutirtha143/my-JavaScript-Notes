@@ -13,22 +13,26 @@
     <Script>
         const alt= document.getElementById('alert');
       alt.setAttribute("style"," color:red");
-        alt.addEventListener('click',(e)=>{
+        alt.addEventListener('mouseenter',(e)=>{
             alert('hello Gyus');
-            window.location="https://www.youtube.com/";
+            // window.location="https://www.youtube.com/";
             console.log(e.target.id);
+            console.log(e.type);
         });
-
-
-        document.querySelector('#prompt').addEventListener('click',(e)=>{
+        
+        
+        document.querySelector('#prompt').addEventListener('keydown',(e)=>{
             prompt('what is your name: ');
+            console.log(e.altKey);
             console.log(e.target.id);
         });
-
-
+        
+        
         document.getElementById('confirm').addEventListener('click',(e)=>{
+            
             confirm('how are you');
             console.log(e.target.id);
+            console.log(e.type);
         });
 
         let d=new Date();

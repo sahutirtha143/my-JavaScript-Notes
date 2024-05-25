@@ -26,6 +26,7 @@ title.textContent
 
 
 <h1 id="title" class="heading">DOM manipulation <span style="display: none;">JAVA SCRIPT</span></h1>
+
 title.innerText
 'DOM manipulation'
 

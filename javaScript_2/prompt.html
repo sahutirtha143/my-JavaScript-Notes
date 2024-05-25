@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="alert">alert</div>
+    <div id="prompt">prompt</div>
+    <div id="confirm">confirm</div>
+    <Script>
+        const alt= document.getElementById('alert');
+      alt.setAttribute("style"," color:red");
+        alt.addEventListener('click',(e)=>{
+            alert('hello Gyus');
+            window.location="https://www.youtube.com/";
+            console.log(e.target.id);
+        });
+
+
+        document.querySelector('#prompt').addEventListener('click',(e)=>{
+            prompt('what is your name: ');
+            console.log(e.target.id);
+        });
+
+
+        document.getElementById('confirm').addEventListener('click',(e)=>{
+            confirm('how are you');
+            console.log(e.target.id);
+        });
+
+        let d=new Date();
+        document.write(d);
+    </Script>
+</body>
+</html>

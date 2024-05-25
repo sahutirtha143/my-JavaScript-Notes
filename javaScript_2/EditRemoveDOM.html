@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <ul class="language">
+        <li style="color: red;">javaScript</li>
+    </ul>
+    
+</body>
+<script>
+//ADD################################### 
+
+    //not optimized code
+    // const addLanguage=(languageName)=>{
+    //     const li=document.createElement('li');
+    //     li.innerHTML=`${languageName}`;
+    //     li.style.color="red";
+    //     document.querySelector('.language').appendChild(li);
+    // }
+    // addLanguage("java");
+    // addLanguage("HTML");
+
+    // #########################################################################
+          //optimized code
+    const addLang=(langName)=>{
+        const li=document.createElement('li');
+        const addText=document.createTextNode(langName);
+        li.appendChild(addText);
+        document.querySelector('.language').appendChild(li);
+    }
+    addLang("java");
+    addLang("HTML");
+    addLang("CSS");
+    addLang("TypeScript");
+
+//EDIT#######################################
+
+const secondEle=document.querySelector("li:nth-child(2)");
+// console.log(secondEle);
+// secondEle.innerHTML="Advance java" //it's not efficient way
+
+const newLi=document.createElement('li');
+// console.log(newLi);
+
+newLi.textContent="Advance Java"
+secondEle.replaceWith(newLi);
+
+//REMOVE########################################
+
+const lastLang=document.querySelector('li:last-child');
+console.log(lastLang);
+lastLang.remove();
+</script>
+</html>

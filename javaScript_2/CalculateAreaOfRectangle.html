@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Rectangle</title>
+</head>
+<body>
+    <h1>Area of Rectangle</h1>
+    <form action="">
+        <label for="">Length</label>
+        <input type="text" placeholder="Enter the value of length" id="length"><br>
+        <label for="">Width</label>
+        <input type="text" placeholder="Enter the value of Width" id="width"><br>
+        <button>calculate</button><br>
+        <div id="result"></div>
+    </form>
+    
+</body>
+<script>
+    const form=document.querySelector('form');
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const len=parseInt(document.querySelector('#length').value);
+        const wid=parseInt(document.querySelector('#width').value);
+        const res=document.querySelector('#result');
+
+        if(len === '' || len < 0 || isNaN(len)){
+            res.innerHTML=`Plz enter vailed data ${len}`;
+
+        }
+        else if(wid === '' || wid < 0 || isNaN(wid)){
+            res.innerHTML=`Plz enter vailed data ${wid}`;
+
+        }else{
+            const area=len*wid;
+            res.innerHTML=`<span>Area of the rectangle is: ${area}</span>`;
+        }
+    });
+</script>
+</html>

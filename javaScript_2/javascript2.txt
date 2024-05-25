@@ -58,4 +58,394 @@ a.forEach(l => {
 });
 
 
-3_How to create a new element
+3_How to create a new element***************************************************************
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+     <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuseday</div>
+        <div class="day">Wednesday</div>
+     </div>
+</body>
+
+<script>
+    const parent=document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[1]);
+    // console.log(parent.children[1].innerHTML);
+
+    // for(let i=0;i<parent.children.length;i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    parent.children[1].style.color="red";
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+</script>
+</html>
+   ######################################################################
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE ELEMENT USING JS</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const div=document.createElement('div');
+    console.log(div);
+    div.className="main"
+    div.id="mymain"
+    div.setAttribute("title","generate-title");
+    // div.innerHTML="Chai aur Code"
+    div.style.backgroundColor="green";
+    div.style.padding="12px";
+
+    const addtext=document.createTextNode("Hello Guys , How Are you");
+    div.appendChild(addtext);
+
+    document.body.appendChild(div);
+</script>
+</html>
+
+4_Edit and remove DOM elements**********************************************
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <ul class="language">
+        <li style="color: red;">javaScript</li>
+    </ul>
+    
+</body>
+<script>
+//ADD################################### 
+
+    //not optimized code
+    // const addLanguage=(languageName)=>{
+    //     const li=document.createElement('li');
+    //     li.innerHTML=`${languageName}`;
+    //     li.style.color="red";
+    //     document.querySelector('.language').appendChild(li);
+    // }
+    // addLanguage("java");
+    // addLanguage("HTML");
+
+    // #########################################################################
+          //optimized code
+    const addLang=(langName)=>{
+        const li=document.createElement('li');
+        const addText=document.createTextNode(langName);
+        li.appendChild(addText);
+        document.querySelector('.language').appendChild(li);
+    }
+    addLang("java");
+    addLang("HTML");
+    addLang("CSS");
+    addLang("TypeScript");
+
+//EDIT#######################################
+
+const secondEle=document.querySelector("li:nth-child(2)");
+// console.log(secondEle);
+// secondEle.innerHTML="Advance java" //it's not efficient way
+
+const newLi=document.createElement('li');
+// console.log(newLi);
+
+newLi.textContent="Advance Java"
+secondEle.replaceWith(newLi);
+
+//REMOVE########################################
+
+const lastLang=document.querySelector('li:last-child');
+console.log(lastLang);
+lastLang.remove();
+</script>
+</html>
+
+
+5_Let’s build 4 js projects**********************************************
+
+ //PREJECT-1---Body Color Change---###########################
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Color Change</title>
+    <style>
+        .button{
+            cursor: pointer;
+        }
+        #red {
+            background-color: red;
+            padding: 10px 10px;
+            cursor: pointer;
+        }
+
+        #blue {
+            background-color: blue;
+            padding: 10px 10px;
+        }
+
+        #grey {
+            background-color: grey;
+            padding: 10px 10px;
+        }
+
+        #green {
+            background-color: green;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Color Swithch</h1>
+    <span class="button" id="red">RED</span>
+    <span class="button" id="blue">BLUE</span>
+    <span class="button" id="grey">GREY</span>
+    <span class="button" id="green">GREEN</span>
+
+</body>
+
+<script>
+    const body = document.querySelector('body');
+    const buttons = document.querySelectorAll('.button');
+
+    buttons.forEach((button) => {
+           console.log(button);
+        button.addEventListener('click', (e) => {
+            // console.log(e);
+            // console.log(e.target);
+          
+            if(e.target.id==='red'){
+                body.style.backgroundColor=e.target.id;
+                // button.style.backgroundColor="#fff";
+            }
+            if(e.target.id==='blue'){
+                body.style.backgroundColor=e.target.id;
+                // button.style.backgroundColor="#fff";
+            }
+            if(e.target.id==='grey'){
+                body.style.backgroundColor=e.target.id;
+                // button.style.backgroundColor="#fff";
+               
+            }
+            if(e.target.id==='green'){
+                body.style.backgroundColor=e.target.id;
+                // button.style.backgroundColor="#fff";
+            }
+
+        });
+        
+    });
+</script>
+
+</html>
+
+
+ //PREJECT-2---Area of Rectangle---###########################
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Rectangle</title>
+</head>
+<body>
+    <h1>Area of Rectangle</h1>
+    <form action="">
+        <label for="">Length</label>
+        <input type="text" placeholder="Enter the value of length" id="length"><br>
+        <label for="">Width</label>
+        <input type="text" placeholder="Enter the value of Width" id="width"><br>
+        <button>calculate</button><br>
+        <div id="result"></div>
+    </form>
+    
+</body>
+<script>
+    const form=document.querySelector('form');
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const len=parseInt(document.querySelector('#length').value);
+        const wid=parseInt(document.querySelector('#width').value);
+        const res=document.querySelector('#result');
+
+        if(len === '' || len < 0 || isNaN(len)){
+            res.innerHTML=`Plz enter vailed data ${len}`;
+
+        }
+        else if(wid === '' || wid < 0 || isNaN(wid)){
+            res.innerHTML=`Plz enter vailed data ${wid}`;
+
+        }else{
+            const area=len*wid;
+            res.innerHTML=`<span>Area of the rectangle is: ${area}</span>`;
+        }
+    });
+</script>
+</html>
+
+
+//PREJECT-3---DIGITAL CLCOK---###########################
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITAL CLCOK</title>
+    <style>
+        .main{
+            width: 100%;
+            height: 100vh;
+            /* margin: auto auto; */
+            display:flex ;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .heading{
+            color: green;
+            font-size: 50px;
+            font-weight: 700;
+        }
+        #clock{
+            background-color: yellow;
+            padding: 1rem 5rem;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body style="background-color: #212121;">
+    <div class="main">
+        <div class="heading"><span style="display: block;">Your Local Time</span></div>
+        <div id="clock"></div>
+    </div>
+</body>
+<script>
+   const clock=document.getElementById('clock');
+
+//    setInterval(()=>{
+//     let date=new Date();
+//     clock.innerHTML=date.toLocaleTimeString();
+
+//    },1000);
+</script>
+</html>
+
+6_Events in javascript**********************************************
+
+  In javaScript EventListener not only give the onclick functionality but also give propagation ability
+  Event propagation have two context
+  1-event bubbling--(false)->buttom-top
+  2-event capturing--(true) ->top-buttom
+
+    // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, preventDefault
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    
+    ###########################################
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    document.getElementById('photoshop').addEventListener('click', (e) => {
+        alert(" hello guys");
+    }, false);
+
+    document.getElementById('google').addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }, false);
+
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+        }
+    })
+</script>
+
+</html>
+
+
+
+7_Async code**********************************************
+
+    ->javscript(Default):- ->Synchronous
+                           ->Single Threaded
+    
+    ->Execution Context:-Execute one line of code at time
+
+
+Generally in js we write code in following two ways:
+    ->Blocking Code: Block the flow of the program->read file sysn
+    ->Non-Blocking Code: Does not block execution->read file asysn

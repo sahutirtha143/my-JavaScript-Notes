@@ -14,7 +14,7 @@ accountCity="bengalur";
 
 // console.log(accId);
 // console.log(accoId);
-// console.log(userId);
+// console.log(userId); 
 // console.log(accountCity);
 
 // console.table([accId,accoId,userId,accountCity,accountState]);
@@ -32,12 +32,15 @@ because some issue in the block scope and functional scope
 //number
 //bigInt
 //string
+//boolean
 //null=stand alone value
 //undefined
 //symblo=>unique
 
-// console.log(typeof undefined);
-// console.log(typeof null);
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof NaN);
+console.log(NaN===NaN);
 
 //03_Datatyope conversion confusion***************************
 

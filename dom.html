@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div>
+<body style="background-color: #212121; color: #fff;">
+    <!-- <div>
         <h1 id="title" class="heading">DOM manipulation <span style="display: none;">JAVA SCRIPT</span></h1>
         <h2>Hello Guys</h2>
         <h2>Hello Guys</h2>
@@ -20,6 +20,32 @@
         <li class="list">Two</li>
         <li class="list">Three</li>
     </ul>
-    
+     -->
+
+
+     <!-- ****************************************************************************** -->
+     <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuseday</div>
+        <div class="day">Wednesday</div>
+     </div>
 </body>
+
+<script>
+    const parent=document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[1]);
+    // console.log(parent.children[1].innerHTML);
+
+    // for(let i=0;i<parent.children.length;i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    parent.children[1].style.color="red";
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+</script>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- //ONLY FOR STOP BUTTON 
+    <h1>Hello Guys...</h1>
+    <button id="stop">STOP</button> 
+    
+<script>
+    const hello=()=>{
+        document.querySelector('h1').innerHTML="how are you";
+    }
+    // hello();
+
+    const sto=setTimeout(hello,3000);
+
+    document.getElementById('stop').addEventListener('click',()=>{
+    clearTimeout(sto);
+    });
+</script>  -->
+
+
+//BOTH FOR START AND STOP BUTTON
+<h1>Hello Guys.....</h1>
+<button id="start">START</button>
+<button id="stop">STOP</button>
+
+<script>
+
+    const hello=(str)=>{
+        document.querySelector('h1').innerHTML='how are you';
+        console.log(str,"how are you",Date.now());
+    }
+    // hello();
+
+    // let si=setInterval(hello,2000,"hii");
+    let si;
+  
+    document.getElementById('start').addEventListener('click',()=>{
+        if(!si){
+             si=setInterval(hello,2000,"hii");
+
+        }
+  
+    });
+
+    document.getElementById('stop').addEventListener('click',()=>{
+    clearInterval(si);
+    });
+</script>
+
+    
+</body>
+
+</html>

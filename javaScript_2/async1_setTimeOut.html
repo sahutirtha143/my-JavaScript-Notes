@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async1-setTimeOut()</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">STOP</button>
+    <script>
+        // setTimeout(()=>{
+        //     console.log("hello Guys");
+        // },5000);
+
+
+            const h1=document.querySelector('h1');
+        const textChange=()=>{
+            h1.innerHTML="To kese ho app log";
+        }
+        // textChange();
+        const ref=setTimeout(textChange,2000);
+
+        document.querySelector('#stop').addEventListener('click',(e)=>{
+            console.log(e.target.id);
+            console.log("STOOPED");
+            clearTimeout(ref);
+        });
+    </script>
+</body>
+</html>

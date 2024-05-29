@@ -450,3 +450,303 @@ lastLang.remove();
 Generally in js we write code in following two ways:
     ->Blocking Code: Block the flow of the program->read file sysn
     ->Non-Blocking Code: Does not block execution->read file asysn
+
+
+
+8_ 2 projects with async****************************************
+  
+  PROJECT-1---############################
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+</head>
+<body>
+
+    <h1>Start button shuld change color in every Second</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+    <script>
+        const body=document.querySelector('body');
+        const h1=document.querySelector('h1');
+        // console.log(Math.floor(Math.random()*16));
+
+        const randomColor=()=>{
+            const hex='0123456789ABCDEF';
+            const x=['ram','shyam','hari'];
+            let color="#";
+            for(let i=0;i<6;i++){
+                color=color+hex[Math.floor(Math.random()*16)];
+            }
+            return color;
+        };
+        console.log(randomColor());
+        let ref;
+        document.querySelector('#start').addEventListener('click',()=>{
+            if(!ref){
+                ref=setInterval(()=>{
+                h1.innerHTML="Color change Event Started";
+                body.style.backgroundColor=randomColor();
+                console.log("color"+ Date.now());
+            },1000);
+           }
+        });
+
+
+        document.querySelector('#stop').addEventListener('click',()=>{
+            h1.innerHTML=" Color change Event Stopped";
+            h1.style.color='red';
+            clearInterval(ref);
+            ref=null;
+            console.log("STOPPED");
+        });
+    </script>
+    
+</body>
+</html>
+
+PROJECT-2---############################
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event KeyCodes</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #e7e7e7;
+        }
+
+        .project {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .color {
+            color: aliceblue;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="project">
+        <div id="insert">
+            <div class="key">Press the key and watch magic</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const insert = document.getElementById('insert');
+    window.addEventListener('keydown', (e) => {
+        insert.innerHTML = `
+        <div class="xyz">
+            <table>
+                <tr>
+                    <th>KEY</th>
+                    <th>KEYCODE</th>
+                    <th>CODE</th>
+                </tr>
+                <tr>
+                    <td>${e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+            </table>
+
+        </div>
+        `;
+    });
+</script>
+
+</html>
+
+
+9_ API request and v8 engine****************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Requets</title>
+</head>
+<body>
+    <h1>HEllo Guys</h1>
+</body>
+<script>
+    const myGitUrl='https://api.github.com/users/sahutirtha143';
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',myGitUrl);
+    xhr.onreadystatechange=()=>{
+        console.log(xhr.readyState );
+        if(xhr.readyState===4){
+        const dataFromApi=JSON.parse(xhr.responseText);
+        console.log(dataFromApi);
+        console.log(dataFromApi.followers);
+        }
+
+    };
+    xhr.send();
+  
+</script>
+</html>
+
+
+10_Promise in javscript********************************************************************************************
+
+  In JavaScript "PROMISE" is treated as "Object";
+  So the PROMISE object represent the eventual completation( or failer) of an Asynchronous operation and its resulting value.
+
+
+// PROMISE-1:***************************************************************************
+// const promiseOne=new Promise((resolve,reject)=>{
+//     // USE OF PROMISE
+//     //do an asyn task
+//     //Database call, cryptograph, network
+
+//     setTimeout(()=>{
+//         console.log("Async task is completed");
+//         resolve();
+//     },1000)
+// });
+
+// promiseOne.then(()=>{
+// console.log("Promise consumed");
+// console.log("***************************************")
+// });
+
+// PROMISE-2:******************************************************************************
+
+// new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Asyn task 2");
+//         resolve();  
+//     },1000)
+// }).then(()=>{
+//     console.log("Asyn 2 resolved");
+// })
+
+
+// PROMISE-3:******************************************************************************
+console.log("***************************************")
+
+// const promiseThree=new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve({username: "SBS",email:"sbs@gmail.com"});//Every this inside reslove method is object
+//     },1000);
+// });
+// promiseThree.then((user)=>{
+//     console.log(user);
+//     console.log("***************************************")
+// });
+
+
+// PROMISE-4:*********************************************************************************
+const promiseFour=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        let err=false;
+        // let err=true;
+        if(!err){
+            resolve({uname:"SBS",email:"sbs@gmail.com"});
+        }else{
+            reject("ERROR: Somithing went worng");
+        }
+    },1000)
+});
+
+promiseFour
+.then((user)=>{
+    console.log(user);
+    return user.uname;
+})
+.then((uname)=>{
+    console.log(uname);
+})
+.catch(()=>{
+    console.log("error");
+})
+.finally(()=>{
+    console.log("The promise either resolved or rejectd");
+    console.log("***************************************")
+})
+
+
+
+// PROMISE-5:**************************************************************************
+
+const promiseFive=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        let err=true;
+        if(!err){
+            resolve({couse:"JavaScript", passwors: "123"});
+        }else{
+            reject("Error: JS went worng");
+        }
+    },1000)
+})
+
+const consumePromiseFive=async ()=>{
+    try {
+        const response=await promiseFive;
+        console.log(response);
+        
+        console.log("***************************************")
+    } catch (error) {
+        console.log(error)
+        console.log("***************************************")
+   }
+}
+consumePromiseFive();
+
+
+// PROMISE-6:********************************************************************************************
+
+// const myGitData=async ()=>{
+    //        try {
+        //         const response=await fetch('https://api.github.com/users/sahutirtha143');
+        //         // console.log(response);
+        //         // const data=response.json();
+        //         const data=await response.json();
+        //         console.log(data);
+        //        } catch (error) {
+            //         console.log("E :"+error)
+            //        }
+            // }
+            // myGitData();
+            
+           
+
+// PROMISE-7:********************************************************************************************
+fetch('https://api.github.com/users/sahutirtha143')
+.then((response)=>{
+    // console.log(response);
+    // console.log("***************************************");
+    return response.json();
+})
+.then((data)=>{
+    console.log(data);
+    console.log("***************************************");
+})
+.catch((error)=>{
+    console.log(error);
+})
+
+
+
+
+11_Now you know fetch********************************************************************************************

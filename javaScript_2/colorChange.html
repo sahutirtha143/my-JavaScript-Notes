@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+</head>
+<body>
+
+    <h1>Start button shuld change color in every Second</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+    <script>
+        const body=document.querySelector('body');
+        const h1=document.querySelector('h1');
+        // console.log(Math.floor(Math.random()*16));
+
+        const randomColor=()=>{
+            const hex='0123456789ABCDEF';
+            const x=['ram','shyam','hari'];
+            let color="#";
+            for(let i=0;i<6;i++){
+                color=color+hex[Math.floor(Math.random()*16)];
+            }
+            return color;
+        };
+        console.log(randomColor());
+        let ref;
+        document.querySelector('#start').addEventListener('click',()=>{
+            if(!ref){
+                ref=setInterval(()=>{
+                h1.innerHTML="Color change Event Started";
+                body.style.backgroundColor=randomColor();
+                console.log("color"+ Date.now());
+            },1000);
+           }
+        });
+
+
+        document.querySelector('#stop').addEventListener('click',()=>{
+            h1.innerHTML=" Color change Event Stopped";
+            h1.style.color='red';
+            clearInterval(ref);
+            ref=null;
+            console.log("STOPPED");
+        });
+    </script>
+    
+</body>
+</html>

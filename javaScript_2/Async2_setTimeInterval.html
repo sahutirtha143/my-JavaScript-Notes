@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async2-setTimeInterval</title>
+</head>
+<body>
+    <h1>Hello Guys</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+
+    <script>
+
+        // setInterval(()=>{
+        //     console.log("Hello Guys"+Date.now());  
+        // },1000);
+
+
+         const textChange=document.querySelector('h1');
+         let ref;
+        document.querySelector('#start').addEventListener('click',()=>{
+            textChange.innerHTML="How are you";
+         if(!ref){
+            ref=setInterval(()=>{
+                console.log("How are you"+Date.now());
+            },1000);
+         }
+        });
+
+        document.querySelector('#stop').addEventListener('click',()=>{
+            clearInterval(ref);
+            ref=null;
+            console.log("STOPPED");
+            textChange.innerHTML="I am fine";
+        });
+
+        setInterval()
+
+    </script>
+</body>
+</html>

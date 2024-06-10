@@ -750,3 +750,434 @@ fetch('https://api.github.com/users/sahutirtha143')
 
 
 11_Now you know fetch********************************************************************************************
+
+FETCH(): is a method
+So the global "fetch()" method starts the process of fetching a resources from the network , returning a promise which is fullfilled once the response is avilable.
+
+
+
+12_Object Oriented javascript********************************************************************************************
+ 
+ JAVASCRIPT IS PRIMARELY A "PROTOTYPE BASED LANGUAGE".
+TERM: Object Literals
+Keywords: Constructor function
+          prototypes
+          classes
+          instance
+
+    //OBJECT LITERALS ####################################################################
+   const user={
+    uname:"SBS Sahu",
+    pass:123,
+    getAllData:function(){
+        // console.log("Here all data avilable ");
+        // console.log(`username is: ${this.uname}`);
+        // console.log(this);
+    }
+   }
+
+//    console.log(user);
+//    console.log(user.uname);
+// console.log(user.getAllData());
+// console.log(this);
+
+//Constructor function #####################################################################
+function myUser(uname,upass,islogin){
+    this.uname=uname;
+    this.upass=upass;
+    this.islogin=islogin;
+
+    return this;
+}
+
+const u1=new myUser("SBS",123,true);
+const u2=new myUser("Sabitri",157,false);
+// console.log(u1);
+// console.log(u1.uname);
+
+console.log(u2);
+console.log(u2.constructor); //.constructor property give data about yourself
+console.log(u2.uname);
+
+
+
+ 13_Magic of prototype********************************************************************************************
+
+  Java Script has prototype behavior
+  //"new" keyword and prototype######################################################################
+
+function createUser(username,price){
+this.username=username;
+this.price=price;
+// return this;
+}
+
+createUser.prototype.increment=function(){
+    this.price++;
+}
+
+createUser.prototype.printMe=function(){
+    console.log(`The price is ${this.price}`);
+}
+
+const baba=new createUser("Biswanath",24);
+const bau=createUser("Subhadra",19);
+// console.log(bau);
+
+baba.printMe();
+
+
+/*
+
+Here's what happens behind the scenes when the "new" keyword is used:
+
+A new object is created: The "new" keyword initiates the creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+
+The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
+
+*/
+
+
+  //PROTOTYPE######################################################################
+
+
+  let myHero=["thor","spiderman"];
+
+
+  let heroPower={
+    thor:"hamer",
+    spiderman:"Spidy",
+
+    getSpidermanPower:function(){
+        console.log(`The spidy is the power of ${this.spiderman}`);
+    }
+  }
+
+//   console.log(myHero);
+//   console.log(heroPower);
+//   console.log(heroPower.getSpidermanPower());
+
+
+Object.prototype.kanchan=function(){
+    console.log(`Kanchan is present for all the object`);
+}
+
+Array.prototype.kasinath=function(){
+    console.log("kasinath say hello to every one");
+}
+
+// myHero.kanchan();
+// heroPower.kanchan();
+
+// myHero.kasinath();
+// heroPower.kasinath(); //TypeError: heroPower.kasinath is not a function
+
+// ###########################################
+
+const jaga="jagannath           ";
+console.log("Length :"+jaga.length);
+
+String.prototype.trueLength=function(){
+    console.log(`${this}`);
+    console.log(`True length of the string is: ${this.trim().length}`)
+}
+
+jaga.trueLength();
+"Anuradha   ".trueLength();
+
+
+
+14_Call and this********************************************************************************************
+    
+function setname(username){
+ this.username=username;
+}
+
+function setData(username,email,pass){
+    setname.call(this,username);
+    this.email=email;
+    this.pass=pass;
+    
+}
+
+const user=new setData("Trupti","trupti@gmail.com",23456);
+console.log(user);
+
+15_Class contructor********************************************************************************************
+    
+//Use of "class" keyword########################################
+class User{
+    constructor(username,email,password){
+        this.username=username;
+        this.email=email;
+        this.password=password;
+    }
+    passwordEncypt(){
+        return `${this.password}xyz`;
+    }
+    changeUsername(){
+        return `${this.username.toUpperCase()}`;
+    }
+}
+
+const rudra=new User("Tusar Sahu","tusar@gmail.com",123);
+
+// console.log(rudra.passwordEncypt());
+// console.log(rudra.changeUsername());
+
+// behind this
+
+function Users(username,email,password){
+    this.username=username;
+    this.email=email;
+    this.password=password;
+}
+
+Users.prototype.passwordEncypt=function(){
+    return `${this.password}xyz`;
+}
+
+Users.prototype. changeUsername=function(){
+    return `${this.username.toUpperCase()}`;
+}
+
+const adi=new Users("Sai Aditya Sahu","adi@gmail.com",9777);
+console.log(adi.passwordEncypt());
+console.log(adi.changeUsername());
+
+
+//USE of "inheritance" ####################################
+
+class User{
+    constructor(username){
+        this.username=username;
+    }
+    myUsername(){
+        console.log(`username is ${this.username}`);
+    }
+}
+
+class brother extends User{
+    constructor(username,gmail,password){
+        super(username);
+        this.gmail=gmail;
+        this.password=password;
+    }
+
+    datials(){
+        console.log(`My brother name is ${this.username}, his email is ${this.gmail} and passwod is ${this.password}`);
+    }
+}
+
+const bro=new brother("Sai Anurag Sahu","anurag@gmail.com","anurag@143");
+// bro.datials();
+
+const bros=new User("Sai Anurag Sahu");
+// bros.myUsername();
+
+console.log(bro instanceof User);
+console.log(bros instanceof User);
+console.log(brother instanceof User);
+console.log(bros instanceof brother);
+
+//USE of "static" keyword (here not completed) #####################################
+
+class User{
+    constructor(username){
+        this.username=username;
+    }
+    myName(){
+        console.log(`My name is ${this.username}`);
+    }
+    static myId(){
+        return `123`;
+    }
+}
+
+const u1=new User("Gagan Sahu");
+u1.myName();
+// console.log(u1.myId());
+
+
+class child extends User{
+    constructor(username,password){
+        super(username);
+    this.password=password;
+    }
+}
+
+
+const c1=new child("Lipi sahu");
+c1.myName();
+// c1.myId();
+
+
+
+
+16_Bind********************************************************************************************
+
+<!-- USE OF "bind()" ######################################### -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-Bild</title>
+</head>
+<body>
+    <button>BUTTON CLICK</button>
+</body>
+
+<script>
+let btn=document.querySelector('button');
+    class react{
+        constructor(){
+            this.library="React";
+            this.server="http://localhost:3305";
+            btn.addEventListener('click',this.handleClick.bind(this));
+        }
+    
+
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this);
+            console.log(this.server);
+            console.log(this.library);
+        }
+    }
+
+    const app=new react(); 
+</script>
+</html>
+
+
+17_ Now you know objects*******************************************************************************
+
+    // const descriptor= Object.getOwnPropertyDescriptor(Math,"PI");
+// console.log(descriptor);
+
+
+const user={
+    name:"SBS Sahu",
+    pass:"sbs@143"
+}
+
+console.log(user);
+console.log(Object.getOwnPropertyDescriptor(user,"name"));
+
+Object.defineProperty(user,"name",{
+    writable:false,
+    enumerable:false
+})
+
+console.log(Object.getOwnPropertyDescriptor(user,"name"));
+
+
+18_Getters and setters*******************************************************************************
+
+//GETTER AND SETTER METHOD
+
+class user{
+    constructor(name ,pass){
+        this.name=name;
+        this.pass=pass;
+    }
+    get pass(){
+        return this._pass;
+    }
+    set pass(value){
+        this._pass=value;
+    }
+}
+
+const u1=new user("jyoti",523);
+console.log(u1.name);
+console.log(u1.pass);
+
+
+19_Lexical scope and closure*******************************************************************************
+
+   LEXICAL manner means  a function present inside another function(parent function)
+   where the inner function can acces the local variable values.
+
+   CLOSURE:A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    </script>
+    <script>
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>

@@ -1,0 +1,35 @@
+
+<!-- USE OF "bind()" ######################################### -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-Bild</title>
+</head>
+<body>
+    <button>BUTTON CLICK</button>
+</body>
+
+<script>
+let btn=document.querySelector('button');
+    class react{
+        constructor(){
+            this.library="React";
+            this.server="http://localhost:3305";
+            btn.addEventListener('click',this.handleClick.bind(this));
+        }
+    
+
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this);
+            console.log(this.server);
+            console.log(this.library);
+        }
+    }
+
+    const app=new react(); 
+</script>
+</html>

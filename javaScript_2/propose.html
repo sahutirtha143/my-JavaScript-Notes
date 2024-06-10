@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff69b4;
+    color: white;
+}
+
+button:hover {
+    background-color: #ff85c1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Marry Me?</h1>
+        <button id="proposeButton">Propose</button>
+    </div>
+    <script>
+        document.getElementById('proposeButton').addEventListener('click', function() {
+    alert("I have something important to ask you...");
+
+    let name = prompt("What's your name?");
+    if (name) {
+        let isReady = confirm("Are you ready for the question, " + name + "?");
+        if (isReady) {
+            let answer = confirm("Will you marry me, " + name + "?");
+            if (answer) {
+                alert("Yay! I'm the happiest person in the world!");
+            } else {
+                alert("Oh no! Maybe another time.");
+            }
+        } else {
+            alert("Okay, take your time.");
+        }
+    } else {
+        alert("I need to know your name first.");
+    }
+});
+
+    </script>
+</body>
+</html>
